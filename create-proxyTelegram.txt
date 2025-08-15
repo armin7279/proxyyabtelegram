@@ -1,0 +1,48 @@
+https://github.com/alexbers/mtprotoproxy
+کانال ساخت پروکسی همراه تگ تبلیغاتی
+t.me/MTProxybot
+
+---------------
+راه اندازی اولیه : دستورات رو با هم یا یکی یکی در ترمینال سرور اضافه کنید
+
+git clone https://github.com/alexbers/mtprotoproxy
+cd mtprotoproxy
+pip3 install -r requirements.txt
+cp config.py.example config.py
+nano config.py
+
+----------------
+اجرای موقت پروکسی
+
+python3 mtprotoproxy.py
+
+----------------
+نصب داکر و اجرای دائمی پروکسی با استفاده از داکر :
+
+apt install docker-compose
+
+docker-compose up -d
+
+حذف و متوقف کردن داکر :
+
+docker-compose down -v
+docker images
+
+----------------
+غیر فعال کردن ایپی ورژن 6 سرور در صورت بروز مشکل
+
+disable_ipv6 :
+
+sudo nano /etc/sysctl.conf
+
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+
+sudo sysctl -p
+ip a | grep inet6
+-------------
+اگر بعد مدتی دیدید پروکسی از کار افتاده اون بخش دامین که نوشته بودیم 
+www.google.com
+تغییر بدید یا کلا غیر فعالش کنید
+
